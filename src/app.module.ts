@@ -28,11 +28,7 @@ import { RemindersModule } from './modules/reminders/reminders.module';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST || 'localhost',
-      port: parseInt(process.env.DB_PORT) || 5432,
-      username: process.env.DB_USERNAME || 'postgres',
-      password: process.env.DB_PASSWORD || 'password',
-      database: process.env.DB_DATABASE || 'goblin_ai',
+      url: process.env.DATABASE_URL,
       entities: [User, UserProfile, Dialog, Message, Project, Tariff, UserTariff, Referral, Promocode, Payment, Reminder],
       synchronize: true, // for dev
     }),
